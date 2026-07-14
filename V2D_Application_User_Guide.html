@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>V2D Application User Guide</title>
+  <style>
+    :root {
+      --green: #76B900;
+      --green-dark: #4f7f00;
+      --bg: #f7faf5;
+      --card: #ffffff;
+      --text: #172017;
+      --muted: #5f6b5f;
+      --border: #dfe8dc;
+      --soft-green: #eef8e8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 24px 72px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0b1609, #12230f 55%, #76B900);
+      color: white;
+      border-radius: 28px;
+      padding: 44px;
+      box-shadow: 0 18px 45px rgba(32, 70, 20, 0.22);
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(118, 185, 0, 0.18);
+      border: 1px solid rgba(118, 185, 0, 0.55);
+      color: #c9ff72;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 44px;
+      line-height: 1.08;
+      margin: 0 0 14px;
+    }
+
+    .hero p {
+      max-width: 780px;
+      color: #e8f5e4;
+      font-size: 17px;
+      margin: 0;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 22px 0 34px;
+    }
+
+    .meta-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--green);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 8px 22px rgba(20, 45, 15, 0.06);
+    }
+
+    .meta-label {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .meta-value {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .toc {
+      position: sticky;
+      top: 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: 0 8px 22px rgba(20, 45, 15, 0.06);
+    }
+
+    .toc h2 {
+      font-size: 18px;
+      margin: 0 0 12px;
+      border: none;
+      padding: 0;
+    }
+
+    .toc a {
+      display: block;
+      color: #244524;
+      text-decoration: none;
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .toc a:hover {
+      background: var(--soft-green);
+      color: var(--green-dark);
+    }
+
+    .content {
+      min-width: 0;
+    }
+
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 22px rgba(20, 45, 15, 0.06);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 26px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--soft-green);
+    }
+
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 18px;
+      color: #1e381e;
+    }
+
+    p {
+      color: var(--muted);
+      margin: 0 0 12px;
+    }
+
+    ul, ol {
+      margin: 10px 0 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      color: #364536;
+    }
+
+    .green-list li::marker {
+      color: var(--green);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .pill {
+      background: var(--soft-green);
+      color: #2f5c20;
+      border: 1px solid #cfe8c6;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .subgrid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .mini-card {
+      background: #fbfdf9;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .mini-card h3 {
+      margin-top: 0;
+      color: #203620;
+    }
+
+    .note {
+      background: var(--soft-green);
+      border-left: 5px solid var(--green);
+      color: #365236;
+      padding: 16px 18px;
+      border-radius: 14px;
+      margin: 18px 0 0;
+      font-weight: 600;
+    }
+
+    .steps {
+      counter-reset: step;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .steps li {
+      position: relative;
+      background: #fbfdf9;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px 14px 14px 52px;
+      margin-bottom: 10px;
+    }
+
+    .steps li::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 14px;
+      top: 13px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #111;
+      font-weight: 800;
+      text-align: center;
+      line-height: 26px;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 30px;
+      font-size: 14px;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .page {
+        max-width: none;
+        padding: 0;
+      }
+
+      .toc {
+        position: static;
+      }
+
+      .section,
+      .meta-card,
+      .toc,
+      .hero {
+        box-shadow: none;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        position: static;
+      }
+
+      .meta-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .subgrid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        padding: 28px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .meta-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="eyebrow">User Guide</div>
+      <h1>V2D Application User Guide</h1>
+      <p>
+        A guide for using V2D to access MV, EGO, Object Scanning, Dashboard User Guide,
+        and quiz resources in one organized place.
+      </p>
+    </section>
+
+    <section class="meta-grid">
+      <div class="meta-card">
+        <div class="meta-label">Use For</div>
+        <div class="meta-value">Training Resources</div>
+      </div>
+      <div class="meta-card">
+        <div class="meta-label">Includes</div>
+        <div class="meta-value">Guides & Examples</div>
+      </div>
+      <div class="meta-card">
+        <div class="meta-label">Validation</div>
+        <div class="meta-value">Quizzes</div>
+      </div>
+      <div class="meta-card">
+        <div class="meta-label">Output</div>
+        <div class="meta-value">CSV Results</div>
+      </div>
+    </section>
+
+    <div class="layout">
+      <aside class="toc">
+        <h2>Contents</h2>
+        <a href="#overview">Overview</a>
+        <a href="#hub">Resource Hub</a>
+        <a href="#mv">MV</a>
+        <a href="#ego">EGO</a>
+        <a href="#scanning">Object Scanning</a>
+        <a href="#dashboard">Dashboard Guide</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#search">Search & Resources</a>
+        <a href="#workflow">Recommended Flow</a>
+      </aside>
+
+      <div class="content">
+        <section class="section" id="overview">
+          <h2>Overview</h2>
+          <p>
+            V2D is a resource hub for MV, EGO, Object Scanning, Dashboard User Guide,
+            and training quizzes.
+          </p>
+          <p>
+            Use this application to find guides, videos, examples, checklists, FAQs,
+            and quizzes in one place.
+          </p>
+
+          <div class="pill-row">
+            <span class="pill">MV</span>
+            <span class="pill">EGO</span>
+            <span class="pill">Object Scanning</span>
+            <span class="pill">Dashboard Guide</span>
+            <span class="pill">Quiz</span>
+          </div>
+        </section>
+
+        <section class="section" id="hub">
+          <h2>V2D Resource Hub</h2>
+          <p>
+            The Resource Hub is the main place to access all training and reference materials.
+          </p>
+          <p>From the Resource Hub, users can open:</p>
+          <ul class="green-list">
+            <li>MV</li>
+            <li>EGO</li>
+            <li>Object Scanning</li>
+            <li>Dashboard User Guide</li>
+            <li>Quiz</li>
+          </ul>
+          <div class="note">
+            Use the search box to quickly find a section or resource.
+          </div>
+        </section>
+
+        <section class="section" id="mv">
+          <h2>MV Section</h2>
+          <p>The MV section contains resources related to MV workflows.</p>
+
+          <div class="subgrid">
+            <div class="mini-card">
+              <h3>Overview</h3>
+              <p>High-level MV workflow information and data collection overview.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Videos</h3>
+              <p>MV training, calibration, output visualization, and example videos.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Docs</h3>
+              <p>Detailed MV documentation, calibration guide, and data collection guidance.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Examples</h3>
+              <p>Good and bad examples to understand quality expectations.</p>
+            </div>
+          </div>
+
+          <h3>Checklist and FAQ</h3>
+          <p>
+            Use the Checklist tab for quick reminders and the FAQ tab for common MV questions.
+          </p>
+        </section>
+
+        <section class="section" id="ego">
+          <h2>EGO Section</h2>
+          <p>The EGO section contains resources related to EGO recording workflows.</p>
+
+          <div class="subgrid">
+            <div class="mini-card">
+              <h3>Overview</h3>
+              <p>High-level EGO workflow, operator checks, and data collector expectations.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Videos</h3>
+              <p>EGO good and bad recording examples.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Docs</h3>
+              <p>EGO documentation, data collector guide, and operator guide.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Examples</h3>
+              <p>Good and bad examples showing recording quality expectations.</p>
+            </div>
+          </div>
+
+          <h3>Checklist and FAQ</h3>
+          <p>
+            Use the Checklist tab for pose, visibility, and movement reminders.
+            Use the FAQ tab for common EGO questions.
+          </p>
+        </section>
+
+        <section class="section" id="scanning">
+          <h2>Object Scanning Section</h2>
+          <p>The Object Scanning section contains resources for scanning workflows.</p>
+
+          <div class="subgrid">
+            <div class="mini-card">
+              <h3>Overview</h3>
+              <p>High-level object scanning workflow information.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Videos</h3>
+              <p>Scanning tutorial videos when available.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Docs</h3>
+              <p>Documentation and external links for scanning tools and workflows.</p>
+            </div>
+            <div class="mini-card">
+              <h3>3D Examples</h3>
+              <p>Good and bad GLB model examples display directly in the card.</p>
+            </div>
+          </div>
+
+          <h3>Checklist and FAQ</h3>
+          <p>
+            Use the Checklist tab before and during scanning. Use the FAQ tab for common
+            object scanning questions.
+          </p>
+        </section>
+
+        <section class="section" id="dashboard">
+          <h2>Dashboard User Guide</h2>
+          <p>
+            The Dashboard User Guide section provides access to the dashboard guide.
+          </p>
+          <p>
+            The guide explains how to use the operations dashboard for daily updates,
+            MV/EGO stations, inventory, orders, station issues, session planning,
+            data collectors, and reports.
+          </p>
+        </section>
+
+        <section class="section" id="quiz">
+          <h2>Quiz Section</h2>
+          <p>The Quiz section contains training validation quizzes.</p>
+
+          <div class="pill-row">
+            <span class="pill">MV Quiz</span>
+            <span class="pill">EGO Quiz</span>
+            <span class="pill">Object Scanning Quiz</span>
+          </div>
+
+          <h3>Taking a Quiz</h3>
+          <ol class="steps">
+            <li>Open the Quiz section.</li>
+            <li>Select the quiz you want to take.</li>
+            <li>Enter your name and email.</li>
+            <li>Answer every question.</li>
+            <li>Click Submit Quiz.</li>
+            <li>Review your score and answers.</li>
+          </ol>
+
+          <h3>Saved Quiz Results</h3>
+          <p>The Saved Results table shows quiz name, name, email, score, percentage, and submitted time.</p>
+          <div class="note">
+            Quiz results are saved in the current browser only. Use Download CSV to export saved results.
+          </div>
+        </section>
+
+        <section class="section" id="search">
+          <h2>Searching and Opening Resources</h2>
+          <p>
+            Each resource section includes a search box. Search by title, description, or tags.
+          </p>
+
+          <ul class="green-list">
+            <li>Documents open in a new tab.</li>
+            <li>Videos open in the in-app video player.</li>
+            <li>Images display directly in the card.</li>
+            <li>3D models display directly in the card.</li>
+            <li>Checklist and FAQ cards display information directly.</li>
+          </ul>
+
+          <div class="note">
+            If a media file has not been added yet, the card may show “Media file not added yet.”
+          </div>
+        </section>
+
+        <section class="section" id="workflow">
+          <h2>Recommended Usage Flow</h2>
+          <ol class="steps">
+            <li>Start at the Home page.</li>
+            <li>Open the V2D Resource Hub.</li>
+            <li>Select MV, EGO, or Object Scanning.</li>
+            <li>Review the Overview tab.</li>
+            <li>Open the Docs tab for detailed instructions.</li>
+            <li>Review Good Examples and Bad Examples.</li>
+            <li>Use the Checklist before starting work.</li>
+            <li>Take the related quiz.</li>
+            <li>Download quiz results if needed.</li>
+          </ol>
+        </section>
+
+        <div class="footer">
+          V2D Application User Guide
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -23,13 +23,22 @@ const Home = () => {
             and Quiz resources.
           </p>
 
-          <div className="flex gap-3 mt-8">
+          <div className="flex flex-wrap gap-3 mt-8">
             <Link
               to="/v2d-resource-hub"
               className="inline-block px-6 py-3 rounded-xl bg-[#76B900] text-black font-semibold hover:bg-[#8ddf00] transition"
             >
               Open Resource Hub
             </Link>
+
+            <a
+              href="/docs/v2d-application-user-guide.html"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-block px-6 py-3 rounded-xl border border-[#2d402d] text-gray-300 hover:border-[#76B900] hover:text-white transition"
+            >
+              View User Guide
+            </a>
           </div>
         </div>
       </section>

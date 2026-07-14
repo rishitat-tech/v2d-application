@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>V2D Application User Guide</title>
+  <style>
+    :root {
+      --green: #76B900;
+      --dark: #111811;
+      --text: #1a1f1a;
+      --muted: #4f5c4f;
+      --line: #d7e2d2;
+      --soft: #f1f8ec;
+      --card: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #ffffff;
+      line-height: 1.55;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+
+    .cover {
+      border: 3px solid var(--green);
+      border-radius: 18px;
+      padding: 34px;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #111811 0%, #1c2b18 70%, #76B900 100%);
+      color: white;
+    }
+
+    .label {
+      display: inline-block;
+      background: var(--green);
+      color: #111;
+      font-weight: 800;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: 38px;
+      line-height: 1.1;
+      margin: 0 0 12px;
+      color: white;
+    }
+
+    .cover p {
+      color: #eef7eb;
+      max-width: 720px;
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .summary-card {
+      border: 1px solid var(--line);
+      border-left: 7px solid var(--green);
+      background: var(--soft);
+      border-radius: 12px;
+      padding: 14px;
+      page-break-inside: avoid;
+    }
+
+    .summary-card strong {
+      display: block;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .section {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 16px;
+      background: var(--card);
+      page-break-inside: avoid;
+    }
+
+    h2 {
+      font-size: 23px;
+      color: var(--dark);
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 3px solid var(--green);
+    }
+
+    h3 {
+      font-size: 16px;
+      color: var(--dark);
+      margin: 16px 0 7px;
+    }
+
+    p {
+      margin: 0 0 10px;
+      color: var(--muted);
+    }
+
+    ul, ol {
+      margin: 8px 0 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    li::marker {
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .box {
+      border: 1px solid var(--line);
+      background: var(--soft);
+      border-radius: 12px;
+      padding: 13px;
+      page-break-inside: avoid;
+    }
+
+    .box h3 {
+      margin-top: 0;
+      color: var(--dark);
+    }
+
+    .note {
+      border-left: 7px solid var(--green);
+      background: var(--soft);
+      padding: 12px 14px;
+      border-radius: 10px;
+      color: var(--dark);
+      font-weight: 600;
+      margin-top: 12px;
+    }
+
+    .steps {
+      list-style: none;
+      padding-left: 0;
+      counter-reset: step;
+    }
+
+    .steps li {
+      counter-increment: step;
+      border: 1px solid var(--line);
+      background: var(--soft);
+      border-radius: 10px;
+      padding: 10px 10px 10px 42px;
+      margin-bottom: 8px;
+      position: relative;
+      page-break-inside: avoid;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 10px;
+      top: 9px;
+      width: 23px;
+      height: 23px;
+      background: var(--green);
+      color: #111;
+      border-radius: 50%;
+      font-weight: 800;
+      text-align: center;
+      line-height: 23px;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 20px;
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+    }
+
+    @page {
+      size: Letter;
+      margin: 0.55in;
+    }
+
+    @media print {
+      body {
+        background: white !important;
+      }
+
+      .page {
+        max-width: none;
+        padding: 0;
+      }
+
+      .cover,
+      .section,
+      .summary-card,
+      .box {
+        box-shadow: none !important;
+      }
+
+      a {
+        color: var(--dark);
+        text-decoration: none;
+      }
+
+      .section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="cover">
+      <div class="label">User Guide</div>
+      <h1>V2D Application User Guide</h1>
+      <p>
+        A guide for using V2D to access MV, EGO, Object Scanning, Dashboard User Guide,
+        and quiz resources in one organized place.
+      </p>
+    </section>
+
+    <section class="summary">
+      <div class="summary-card">
+        <strong>Use For</strong>
+        Training resources, guides, examples, and quizzes.
+      </div>
+      <div class="summary-card">
+        <strong>Main Areas</strong>
+        MV, EGO, Object Scanning, Dashboard Guide, Quiz.
+      </div>
+      <div class="summary-card">
+        <strong>Resource Types</strong>
+        Documents, videos, examples, checklists, FAQs, images, and 3D models.
+      </div>
+      <div class="summary-card">
+        <strong>Quiz Results</strong>
+        Scores are saved in the browser and can be downloaded as CSV.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Overview</h2>
+      <p>
+        V2D is a resource hub for MV, EGO, Object Scanning, Dashboard User Guide,
+        and training quizzes. Use this application to find guides, videos, examples,
+        checklists, FAQs, and quizzes in one place.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>V2D Resource Hub</h2>
+      <p>
+        The Resource Hub is the main place to access all training and reference materials.
+      </p>
+      <ul>
+        <li>MV</li>
+        <li>EGO</li>
+        <li>Object Scanning</li>
+        <li>Dashboard User Guide</li>
+        <li>Quiz</li>
+      </ul>
+      <div class="note">
+        Use the search box to quickly find a section or resource.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>MV Section</h2>
+      <p>The MV section contains resources related to MV workflows.</p>
+      <div class="grid">
+        <div class="box">
+          <h3>Overview</h3>
+          <p>High-level MV workflow information and data collection overview.</p>
+        </div>
+        <div class="box">
+          <h3>Videos</h3>
+          <p>MV training, calibration, output visualization, and example videos.</p>
+        </div>
+        <div class="box">
+          <h3>Docs</h3>
+          <p>Detailed MV documentation, calibration guide, and data collection guidance.</p>
+        </div>
+        <div class="box">
+          <h3>Examples</h3>
+          <p>Good and bad examples to understand quality expectations.</p>
+        </div>
+      </div>
+      <p>
+        Use the Checklist tab for quick reminders and the FAQ tab for common MV questions.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>EGO Section</h2>
+      <p>The EGO section contains resources related to EGO recording workflows.</p>
+      <div class="grid">
+        <div class="box">
+          <h3>Overview</h3>
+          <p>High-level EGO workflow, operator checks, and data collector expectations.</p>
+        </div>
+        <div class="box">
+          <h3>Videos</h3>
+          <p>EGO good and bad recording examples.</p>
+        </div>
+        <div class="box">
+          <h3>Docs</h3>
+          <p>EGO documentation, data collector guide, and operator guide.</p>
+        </div>
+        <div class="box">
+          <h3>Examples</h3>
+          <p>Good and bad examples showing recording quality expectations.</p>
+        </div>
+      </div>
+      <p>
+        Use the Checklist tab for pose, visibility, and movement reminders.
+        Use the FAQ tab for common EGO questions.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Object Scanning Section</h2>
+      <p>The Object Scanning section contains resources for scanning workflows.</p>
+      <div class="grid">
+        <div class="box">
+          <h3>Overview</h3>
+          <p>High-level object scanning workflow information.</p>
+        </div>
+        <div class="box">
+          <h3>Videos</h3>
+          <p>Scanning tutorial videos when available.</p>
+        </div>
+        <div class="box">
+          <h3>Docs</h3>
+          <p>Documentation and external links for scanning tools and workflows.</p>
+        </div>
+        <div class="box">
+          <h3>3D Examples</h3>
+          <p>Good and bad GLB model examples display directly in the card.</p>
+        </div>
+      </div>
+      <p>
+        Use the Checklist tab before and during scanning. Use the FAQ tab for common
+        object scanning questions.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Dashboard User Guide</h2>
+      <p>
+        The Dashboard User Guide section provides access to the dashboard guide.
+        Use this section to open or download the dashboard documentation.
+      </p>
+      <p>
+        The guide explains how to use the operations dashboard for daily updates,
+        MV/EGO stations, inventory, orders, station issues, session planning,
+        data collectors, and reports.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Quiz Section</h2>
+      <p>The Quiz section contains training validation quizzes.</p>
+      <ul>
+        <li>MV Quiz</li>
+        <li>EGO Quiz</li>
+        <li>Object Scanning Quiz</li>
+      </ul>
+
+      <h3>Taking a Quiz</h3>
+      <ol class="steps">
+        <li>Open the Quiz section.</li>
+        <li>Select the quiz you want to take.</li>
+        <li>Enter your name and email.</li>
+        <li>Answer every question.</li>
+        <li>Click Submit Quiz.</li>
+        <li>Review your score and answers.</li>
+      </ol>
+
+      <h3>Saved Quiz Results</h3>
+      <p>
+        The Saved Results table shows quiz name, name, email, score, percentage,
+        and submitted time.
+      </p>
+      <div class="note">
+        Quiz results are saved in the current browser only. Use Download CSV to export saved results.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Searching and Opening Resources</h2>
+      <p>
+        Each resource section includes a search box. Search by title, description, or tags.
+      </p>
+      <ul>
+        <li>Documents open in a new tab.</li>
+        <li>Videos open in the in-app video player.</li>
+        <li>Images display directly in the card.</li>
+        <li>3D models display directly in the card.</li>
+        <li>Checklist and FAQ cards display information directly.</li>
+      </ul>
+      <div class="note">
+        If a media file has not been added yet, the card may show “Media file not added yet.”
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Recommended Usage Flow</h2>
+      <ol class="steps">
+        <li>Start at the Home page.</li>
+        <li>Open the V2D Resource Hub.</li>
+        <li>Select MV, EGO, or Object Scanning.</li>
+        <li>Review the Overview tab.</li>
+        <li>Open the Docs tab for detailed instructions.</li>
+        <li>Review Good Examples and Bad Examples.</li>
+        <li>Use the Checklist before starting work.</li>
+        <li>Take the related quiz.</li>
+        <li>Download quiz results if needed.</li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>Notes</h2>
+      <ul>
+        <li>Use guides for detailed instructions.</li>
+        <li>Use examples to understand quality expectations.</li>
+        <li>Use checklists as quick reminders.</li>
+        <li>Use quizzes to confirm understanding.</li>
+        <li>Quiz results are stored locally in the browser.</li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      V2D Application User Guide
+    </div>
+  </main>
+</body>
+</html>
