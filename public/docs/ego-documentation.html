@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EGO Documentation</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #050805; color: #f5f5f5; line-height: 1.6; }
+    .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+    .header { border: 1px solid #263626; background: linear-gradient(135deg, #132013, #0B0F0B, #050805); border-radius: 24px; padding: 32px; margin-bottom: 24px; }
+    .eyebrow { color: #76B900; font-weight: 700; margin-bottom: 8px; }
+    h1 { margin: 0; font-size: 36px; }
+    h2 { border-bottom: 1px solid #263626; padding-bottom: 8px; margin-top: 28px; }
+    .card { border: 1px solid #263626; background: #0B0F0B; border-radius: 18px; padding: 24px; margin-bottom: 18px; }
+    li { margin-bottom: 8px; color: #d0d0d0; }
+    .note { background: #101810; border-left: 4px solid #76B900; padding: 14px 16px; border-radius: 12px; color: #d0d0d0; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="header">
+      <div class="eyebrow">EGO Guide</div>
+      <h1>EGO Documentation</h1>
+      <p>
+        This documentation summarizes the EGO recording workflow, data collector expectations,
+        operator checks, gesture requirements, and quality rules.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Purpose</h2>
+      <p>
+        EGO recording captures tasks from a head-mounted camera view. The recording should clearly show
+        the hands, wrists, objects, and task interaction.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Main Rules</h2>
+      <ul>
+        <li>Prioritize safety and smooth, deliberate movements.</li>
+        <li>Treat the hardware with care and do not force anything.</li>
+        <li>Start with the required hand pose and return to that pose at the end.</li>
+        <li>Hold the start pose for 3 seconds.</li>
+        <li>Keep fingers and wrists visible.</li>
+        <li>Make sure no extra person or extra hand is visible in the head-mounted camera view.</li>
+        <li>Keep the task interaction in frame.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Movement Quality</h2>
+      <ul>
+        <li>Move slowly and naturally.</li>
+        <li>Use smooth, continuous movements.</li>
+        <li>Keep speed consistent throughout the task.</li>
+        <li>Avoid jerky, fast, or unexpected movements.</li>
+        <li>Avoid unnecessary waist rotation.</li>
+        <li>Do not make a fist when not interacting with objects.</li>
+      </ul>
+    </section>
+
+
+    <section class="card">
+      <h2>Movement Principles</h2>
+
+      <h3>Law 1: Deliberate Over Fast</h3>
+      <ul>
+        <li>Speed is not a quality metric.</li>
+        <li>A slow, clean trajectory is more valuable than a fast, noisy one.</li>
+        <li>Prioritize clear, controlled movement over speed.</li>
+      </ul>
+
+      <h3>Law 2: Smooth Over Segmented</h3>
+      <ul>
+        <li>Use continuous, fluid motions instead of stop-start patterns.</li>
+        <li>Avoid micro-adjustments in the middle of the movement.</li>
+        <li>Plan the movement path before executing the action.</li>
+      </ul>
+
+      <h3>Law 3: Consistent Over Creative</h3>
+      <ul>
+        <li>Repeat the same movement pattern across episodes when possible.</li>
+        <li>Avoid unnecessary variation in how the task is performed.</li>
+        <li>Consistent approaches help reduce variation in the collected data.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Movement Speed & Duration</h2>
+      <p>
+        Target duration is <strong>10–40 seconds minimum per episode</strong>, unless stated otherwise.
+      </p>
+
+      <ul>
+        <li><strong>Teaching Speed:</strong> Slowest speed with exaggerated clarity. This is the default for all collection.</li>
+        <li><strong>Standard Speed:</strong> Measured and purposeful pace. Use when specified.</li>
+        <li><strong>Natural Speed:</strong> Real-world practical speed. Use only when explicitly requested.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>More Details</h2>
+      <p class="note">
+        Use the EGO Data Collector Guide for collector expectations and the EGO Operator Guide
+        for operator checks and redo rules.
+      </p>
+    </section>
+  </main>
+</body>
+</html>

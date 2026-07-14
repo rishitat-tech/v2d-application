@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MV Calibration Guide</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #050805;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    .header {
+      border: 1px solid #263626;
+      background: linear-gradient(135deg, #132013, #0B0F0B, #050805);
+      border-radius: 24px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      color: #76B900;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    h2 {
+      color: #ffffff;
+      margin-top: 28px;
+      border-bottom: 1px solid #263626;
+      padding-bottom: 8px;
+    }
+
+    .card {
+      border: 1px solid #263626;
+      background: #0B0F0B;
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 18px;
+    }
+
+    ul, ol {
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      color: #d0d0d0;
+    }
+
+    .note {
+      background: #101810;
+      border-left: 4px solid #76B900;
+      padding: 14px 16px;
+      border-radius: 12px;
+      color: #d0d0d0;
+    }
+
+    .warning {
+      background: #1a1010;
+      border-left: 4px solid #ff8a8a;
+      padding: 14px 16px;
+      border-radius: 12px;
+      color: #ffd0d0;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="header">
+      <div class="eyebrow">MV Guide</div>
+      <h1>MV Calibration Guide</h1>
+      <p>
+        This guide explains how to prepare for MV calibration, position the calibration board,
+        perform the movement, and verify the calibration video before starting data collection.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Purpose of Calibration</h2>
+      <p>
+        The calibration board and calibration process are used for extrinsic calibration,
+        which helps determine the 3D camera pose. This assumes the individual cameras
+        already have correctly calibrated intrinsics.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Before Starting</h2>
+      <ul>
+        <li>Use a calibration board that meets the expected requirements.</li>
+        <li>Stand in the center of the marked bounding area.</li>
+        <li>Make sure all cameras are secure and not moving.</li>
+        <li>Ensure no other chessboard patterns are visible to any camera.</li>
+        <li>Confirm the calibration board is clearly visible to the cameras.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>How to Move the Board</h2>
+      <ul>
+        <li>Move the board slowly and smoothly.</li>
+        <li>Avoid fast or jerky movements.</li>
+        <li>Keep the board vertical at camera height.</li>
+        <li>Slow, smooth motion helps reduce motion blur.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Calibration Movement Steps</h2>
+      <ol>
+        <li>Start by facing each camera.</li>
+        <li>Move slowly while turning toward the left.</li>
+        <li>Hold the board vertically at camera height.</li>
+        <li>Perform a smooth stationary full rotation for about 20–30 seconds.</li>
+        <li>Step back about 1.5 meters, or about 5 feet.</li>
+        <li>Circle around the area while moving the board up and down for about 30 seconds.</li>
+        <li>Once complete, inform the person at the computer so the process can be closed.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>After Calibration</h2>
+      <p>
+        Once calibration is complete, verify that the calibration video is good quality before
+        starting data collection.
+      </p>
+
+      <p class="note">
+        Calibration recordings can be checked at:
+        <br />
+        <strong>/mnt/nova_ssd/recordings/&lt;recording_name&gt;</strong>
+      </p>
+
+      <p>
+        Verifying the calibration video increases the chances of collecting high-quality data.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Things to Avoid</h2>
+      <ul>
+        <li>Do not move the board too quickly.</li>
+        <li>Do not allow cameras to move during calibration.</li>
+        <li>Do not allow other chessboard patterns to be visible.</li>
+        <li>Do not start data collection until the calibration video has been verified.</li>
+      </ul>
+
+      <p class="warning">
+        If a camera moves during or after calibration, recalibration may be needed before collecting data.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Quick Checklist</h2>
+      <ul>
+        <li>Calibration board ready.</li>
+        <li>Person/board centered in the marked bounding area.</li>
+        <li>Cameras secure and not moving.</li>
+        <li>No extra chessboard patterns visible.</li>
+        <li>Board moved slowly and smoothly.</li>
+        <li>Full rotation completed.</li>
+        <li>Step-back and circle movement completed.</li>
+        <li>Calibration video verified before data collection.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

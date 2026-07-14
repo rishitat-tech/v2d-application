@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EGO Workflow Overview</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #050805; color: #f5f5f5; line-height: 1.6; }
+    .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+    .header { border: 1px solid #263626; background: linear-gradient(135deg, #132013, #0B0F0B, #050805); border-radius: 24px; padding: 32px; margin-bottom: 24px; }
+    .eyebrow { color: #76B900; font-weight: 700; margin-bottom: 8px; }
+    h1 { margin: 0; font-size: 36px; }
+    h2 { border-bottom: 1px solid #263626; padding-bottom: 8px; margin-top: 28px; }
+    .card { border: 1px solid #263626; background: #0B0F0B; border-radius: 18px; padding: 24px; margin-bottom: 18px; }
+    li { margin-bottom: 8px; color: #d0d0d0; }
+    .note { background: #101810; border-left: 4px solid #76B900; padding: 14px 16px; border-radius: 12px; color: #d0d0d0; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="header">
+      <div class="eyebrow">EGO Overview</div>
+      <h1>EGO Workflow Overview</h1>
+      <p>
+        This overview explains the EGO recording workflow at a high level, including setup,
+        operator checks, data collector expectations, gesture requirements, and recording quality.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Purpose</h2>
+      <p>
+        EGO recording captures tasks from a head-mounted camera view. The goal is to collect clear,
+        stable, and usable recordings where the task, hands, wrists, and object interactions remain visible.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Main Workflow</h2>
+      <ol>
+        <li>Prepare the head-mounted camera and recording setup.</li>
+        <li>Operator confirms the camera view is clear.</li>
+        <li>Data collector starts with the required hand pose.</li>
+        <li>Data collector holds the pose steadily for 3 seconds.</li>
+        <li>Data collector performs the task slowly, naturally, and consistently.</li>
+        <li>Operator watches that hands, wrists, and objects remain in frame.</li>
+        <li>Data collector returns to the required start pose at the end.</li>
+        <li>Operator ends the recording and confirms whether the sequence is usable.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>Key Quality Rules</h2>
+      <ul>
+        <li>Hands and wrists should stay visible.</li>
+        <li>No extra hands or people should appear in the camera view.</li>
+        <li>Movements should be slow, smooth, natural, and deliberate.</li>
+        <li>Avoid fast, jerky, or unrelated movements.</li>
+        <li>Keep the head-mounted camera view stable.</li>
+        <li>Do not force hardware or objects.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>More Information</h2>
+      <p class="note">
+        Use the EGO Data Collection Guide for operator and data collector responsibilities.
+        Use the EGO Setup & Gesture Guide for pose and camera visibility requirements.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
