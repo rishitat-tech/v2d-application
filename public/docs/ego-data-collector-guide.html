@@ -14,6 +14,36 @@
     .card { border: 1px solid #263626; background: #0B0F0B; border-radius: 18px; padding: 24px; margin-bottom: 18px; }
     li { margin-bottom: 8px; color: #d0d0d0; }
     .note { background: #101810; border-left: 4px solid #76B900; padding: 14px 16px; border-radius: 12px; color: #d0d0d0; }
+
+  
+    .guide-image {
+      display: block;
+      width: 100%;
+      max-width: 520px;
+      max-height: 240px;
+      object-fit: contain;
+      background: #000;
+      border-radius: 12px;
+      border: 1px solid #263626;
+      margin: 12px 0 8px;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 12px 0 8px;
+    }
+
+    .image-grid img {
+      width: 100%;
+      max-height: 220px;
+      object-fit: contain;
+      background: #000;
+      border-radius: 12px;
+      border: 1px solid #263626;
+    }
+
   </style>
 </head>
 <body>
@@ -34,6 +64,13 @@
         <li>Return to the same pose at the end of the session.</li>
         <li>No 3 second hold is required at the end.</li>
       </ul>
+
+      <h3>Start and End Pose Example</h3>
+      <img
+        src="/images/ego/good-example-ego.png"
+        alt="EGO start and end pose example"
+        class="guide-image"
+      />
     </section>
 
     <section class="card">
@@ -44,6 +81,20 @@
         <li>Do not cover hands or wrists with clothing.</li>
         <li>Keep the task interaction inside the head-mounted camera view.</li>
       </ul>
+
+      <h3>EGO Camera View Example</h3>
+      <img
+        src="/images/ego/ego-camera.jpg"
+        alt="EGO camera view example"
+        class="guide-image"
+      />
+
+      <h3>Bad Visibility Example</h3>
+      <img
+        src="/images/ego/bad-example-ego.jpeg"
+        alt="Bad EGO visibility example"
+        class="guide-image"
+      />
     </section>
 
     <section class="card">

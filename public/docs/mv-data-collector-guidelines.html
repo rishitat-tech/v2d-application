@@ -79,6 +79,35 @@
       border-radius: 12px;
       color: #d0d0d0;
     }
+  
+    .guide-image {
+      display: block;
+      width: 100%;
+      max-width: 520px;
+      max-height: 240px;
+      object-fit: contain;
+      background: #000;
+      border-radius: 12px;
+      border: 1px solid #263626;
+      margin: 12px 0 8px;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 12px 0 8px;
+    }
+
+    .image-grid img {
+      width: 100%;
+      max-height: 220px;
+      object-fit: contain;
+      background: #000;
+      border-radius: 12px;
+      border: 1px solid #263626;
+    }
+
   </style>
 </head>
 <body>
@@ -93,6 +122,29 @@
     </section>
 
     <section class="card">
+      <h2>Where the Person Should Stand</h2>
+      <p>
+        The data collector should stand inside the marked bounding area before starting the task.
+        They should begin from the correct start position and remain inside the allowed area during recording.
+      </p>
+
+      <h3>Bounding Area Example</h3>
+      <img
+        src="/images/mv/bounding-area.png"
+        alt="MV bounding area example"
+        class="guide-image"
+      />
+
+      <h3>Start Position Example</h3>
+      <img
+        src="/images/mv/start-position-mv.png"
+        alt="MV start position example"
+        class="guide-image"
+      />
+    </section>
+
+    <section class="card">
+      <h2>Bounding Area Rules</h2>
       <h2>Where the Data Collector Should Stand</h2>
       <ul>
         <li>Start inside the marked bounding area.</li>
@@ -129,6 +181,13 @@
         <li>Comfortable footwear that allows safe and controlled movement.</li>
         <li>Hair tied back or kept above shoulder length if needed.</li>
       </ul>
+
+      <h3>Good Dressing Example</h3>
+      <img
+        src="/images/mv/data-collector-guide/good-dressing.webp"
+        alt="Good dressing example for MV data collection"
+        class="guide-image"
+      />
     </section>
 
     <section class="card">
@@ -145,6 +204,20 @@
         <li>Scarves or loose accessories.</li>
         <li>Anything that blocks the object, hands, or body movement from the camera view.</li>
       </ul>
+
+      <h3>Bad Dressing Examples</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 12px 0 8px;">
+        <img
+          src="/images/mv/data-collector-guide/bad-dressing-1.webp"
+          alt="Bad dressing example 1 for MV data collection"
+          
+        />
+        <img
+          src="/images/mv/data-collector-guide/bad-dressing-2.jpeg"
+          alt="Bad dressing example 2 for MV data collection"
+          
+        />
+      </div>
     </section>
 
     <section class="card">

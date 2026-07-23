@@ -112,11 +112,11 @@ export const resources = [
     section: "MV",
     category: "Docs",
     title: "MV Operator Guide",
-    description: "Operator instructions for completing recording fields, starting recordings, giving countdowns, ending sessions, and communicating with the data collector.",
+    description: "Operator instructions for connecting to Nova Orin, launching the recorder, opening the monitoring UI, starting recordings, giving countdowns, ending sessions, and communicating with the data collector.",
     type: "doc",
     tags: ["mv", "operator", "guide"],
     lastUpdated: "To be updated",
-    url: "#",
+    url: "/docs/mv-operator-guide.html",
   },
 
   // MV Good Examples

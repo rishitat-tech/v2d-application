@@ -14,6 +14,35 @@
     .card { border: 1px solid #263626; background: #0B0F0B; border-radius: 18px; padding: 24px; margin-bottom: 18px; }
     li { margin-bottom: 8px; color: #d0d0d0; }
     .warning { background: #1a1010; border-left: 4px solid #ff8a8a; padding: 14px 16px; border-radius: 12px; color: #ffd0d0; }
+  
+    .guide-image {
+      display: block;
+      width: 100%;
+      max-width: 520px;
+      max-height: 240px;
+      object-fit: contain;
+      background: #000;
+      border-radius: 12px;
+      border: 1px solid #263626;
+      margin: 12px 0 8px;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 12px 0 8px;
+    }
+
+    .image-grid img {
+      width: 100%;
+      max-height: 220px;
+      object-fit: contain;
+      background: #000;
+      border-radius: 12px;
+      border: 1px solid #263626;
+    }
+
   </style>
 </head>
 <body>
@@ -56,6 +85,18 @@
         <li>If the object or main task interaction goes out of frame, delete the sequence and redo it.</li>
         <li>If another person or extra hand appears in frame, delete the sequence and redo it.</li>
       </ul>
+
+      <h3>Good and Bad EGO Examples</h3>
+      <div class="image-grid">
+        <img
+          src="/images/ego/good-example-ego.png"
+          alt="Good EGO example"
+        />
+        <img
+          src="/images/ego/bad-example-ego-2.jpeg"
+          alt="Bad EGO redo example"
+        />
+      </div>
 
       <p class="warning">
         Do not keep a sequence if important task interaction is missing from the head-mounted camera view.

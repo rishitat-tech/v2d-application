@@ -14,6 +14,36 @@
     .card { border: 1px solid #263626; background: #0B0F0B; border-radius: 18px; padding: 24px; margin-bottom: 18px; }
     li { margin-bottom: 8px; color: #d0d0d0; }
     .note { background: #101810; border-left: 4px solid #76B900; padding: 14px 16px; border-radius: 12px; color: #d0d0d0; }
+  
+    .guide-image {
+      display: block;
+      width: 100%;
+      max-width: 520px;
+      max-height: 240px;
+      object-fit: contain;
+      background: #000;
+      border-radius: 12px;
+      border: 1px solid #263626;
+      margin: 12px 0 8px;
+    }
+
+  
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 12px 0 8px;
+    }
+
+    .image-grid img {
+      width: 100%;
+      max-height: 220px;
+      object-fit: contain;
+      background: #000;
+      border-radius: 12px;
+      border: 1px solid #263626;
+    }
+
   </style>
 </head>
 <body>
@@ -34,6 +64,13 @@
         The goal is to collect clean, high-quality data where the data collector, object,
         and task interaction stay visible and inside the marked bounding area.
       </p>
+
+      <h3>MV Setup Example</h3>
+      <img
+        src="/images/mv/mv-setup.png"
+        alt="MV setup example"
+        class="guide-image"
+      />
     </section>
 
     <section class="card">
@@ -45,6 +82,13 @@
         <li>Confirm the data collector is inside the marked bounding area.</li>
         <li>Make sure the object is visible and not blocked from camera views.</li>
       </ul>
+
+      <h3>Start Position Example</h3>
+      <img
+        src="/images/mv/start-position-mv.png"
+        alt="MV start position example"
+        class="guide-image"
+      />
     </section>
 
     <section class="card">
@@ -69,6 +113,36 @@
     </section>
 
     <section class="card">
+      <h2>Lighting Requirements</h2>
+      <p>
+        Lighting directly affects MV data quality. Good lighting helps the cameras clearly capture
+        the data collector, object, bounding area, and task interaction. Poor lighting can make the
+        object harder to see, create shadows, increase blur, and reduce recording quality.
+      </p>
+
+      <ul>
+        <li>Make sure the area is well lit before recording.</li>
+        <li>Avoid dark rooms, strong shadows, glare, or uneven lighting.</li>
+        <li>Confirm the object and person are clearly visible from the camera views.</li>
+        <li>If lighting is poor, fix it before starting data collection.</li>
+      </ul>
+
+      <h3>Good Lighting Example</h3>
+      <img
+        src="/images/mv/lighting/good-lighting.jpg"
+        alt="Good MV lighting example"
+        class="guide-image"
+      />
+
+      <h3>Bad Lighting Example</h3>
+      <img
+        src="/images/mv/lighting/bad-lighting.jpg"
+        alt="Bad MV lighting example"
+        class="guide-image"
+      />
+    </section>
+
+<section class="card">
       <h2>Key Reminders</h2>
       <ul>
         <li>Stay inside the marked bounding area.</li>
