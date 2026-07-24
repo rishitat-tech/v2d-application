@@ -45,6 +45,47 @@ const V2DHome = () => {
         />
       </section>
 
+
+      <section className="rounded-2xl border border-[#263626] bg-[#0B0F0B] p-6 mb-6">
+        <p className="text-[#76B900] font-semibold">How to use this hub</p>
+        <h2 className="text-2xl font-bold mt-2">Follow the resources in order</h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-5">
+          <div className="rounded-xl border border-[#263626] bg-[#050805] p-4">
+            <div className="h-9 w-9 rounded-full bg-[#76B900] text-black font-black flex items-center justify-center">
+              1
+            </div>
+            <h3 className="font-bold mt-4">Choose a workflow</h3>
+            <p className="text-gray-400 mt-2 text-sm leading-6">
+              Select MV, EGO, Object Scanning, Dashboard User Guide, or Quiz.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-[#263626] bg-[#050805] p-4">
+            <div className="h-9 w-9 rounded-full bg-[#76B900] text-black font-black flex items-center justify-center">
+              2
+            </div>
+            <h3 className="font-bold mt-4">Review the materials</h3>
+            <p className="text-gray-400 mt-2 text-sm leading-6">
+              Start with overview and docs, then review videos, examples,
+              checklists, and FAQs.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-[#263626] bg-[#050805] p-4">
+            <div className="h-9 w-9 rounded-full bg-[#76B900] text-black font-black flex items-center justify-center">
+              3
+            </div>
+            <h3 className="font-bold mt-4">Complete the quiz</h3>
+            <p className="text-gray-400 mt-2 text-sm leading-6">
+              Take the related quiz to confirm understanding and download
+              results if needed.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
         {filteredSections.map((section) => (
           <div

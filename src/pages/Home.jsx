@@ -42,6 +42,28 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <section className="relative mt-6 grid grid-cols-1 lg:grid-cols-3 gap-5">
+        <div className="lg:col-span-2 rounded-2xl border border-[#1f2f1f] bg-[#0B0F0B] p-6">
+          <p className="text-[#76B900] font-semibold">What is V2D?</p>
+          <h2 className="text-2xl font-bold mt-2">A centralized training and resource hub</h2>
+          <p className="text-gray-400 mt-3 leading-7">
+            V2D brings together workflow guides, training materials, examples,
+            checklists, FAQs, dashboard documentation, and quizzes for MV, EGO,
+            and Object Scanning resources.
+          </p>
+        </div>
+
+        <div className="rounded-2xl border border-[#1f2f1f] bg-[#0B0F0B] p-6">
+          <p className="text-[#76B900] font-semibold">Quick Start</p>
+          <h2 className="text-2xl font-bold mt-2">Start with the Resource Hub</h2>
+          <p className="text-gray-400 mt-3 leading-7">
+            Open the Resource Hub, choose a workflow, review the materials, then
+            complete the related quiz.
+          </p>
+        </div>
+      </section>
+
     </div>
   );
 };
