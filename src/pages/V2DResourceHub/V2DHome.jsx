@@ -32,8 +32,9 @@ const V2DHome = () => {
         </h1>
 
         <p className="text-gray-400 mt-3 max-w-3xl leading-7">
-          Central place for MV, EGO, Object Scanning, Dashboard User Guide, and quizzes.
-          Use the sections below to find guides, examples, checklists, and training materials.
+          V2D stands for Video 2 Data. Use this hub as the central place for
+          MV, EGO, Object Scanning, Dashboard User Guide, examples, checklists,
+          training materials, and quizzes.
         </p>
 
         <input
