@@ -1,175 +1,257 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MV Operator Guide</title>
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; background: #050805; color: #f5f5f5; line-height: 1.6; }
-    .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
-    .header { border: 1px solid #263626; background: linear-gradient(135deg, #132013, #0B0F0B, #050805); border-radius: 24px; padding: 32px; margin-bottom: 24px; }
-    .eyebrow { color: #76B900; font-weight: 700; margin-bottom: 8px; }
-    h1 { margin: 0; font-size: 36px; }
-    h2 { border-bottom: 1px solid #263626; padding-bottom: 8px; margin-top: 28px; }
-    h3 { margin-top: 22px; color: #ffffff; }
-    .card { border: 1px solid #263626; background: #0B0F0B; border-radius: 18px; padding: 24px; margin-bottom: 18px; }
-    li { margin-bottom: 8px; color: #d0d0d0; }
-    code, pre { background: #050805; border: 1px solid #263626; border-radius: 10px; color: #d0d0d0; }
-    code { padding: 2px 6px; }
-    pre { padding: 14px 16px; overflow-x: auto; white-space: pre-wrap; }
-    .note { background: #101810; border-left: 4px solid #76B900; padding: 14px 16px; border-radius: 12px; color: #d0d0d0; }
-    .warning { background: #1a1010; border-left: 4px solid #ff8a8a; padding: 14px 16px; border-radius: 12px; color: #ffd0d0; }
-    .guide-image {
-      display: block;
-      width: 100%;
-      max-width: 720px;
-      max-height: 420px;
-      object-fit: contain;
-      background: #000;
-      border-radius: 12px;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #050805;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    .header {
       border: 1px solid #263626;
-      margin: 12px 0 8px;
+      background: linear-gradient(135deg, #132013, #0B0F0B, #050805);
+      border-radius: 24px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      color: #76B900;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    h2 {
+      color: #ffffff;
+      margin-top: 28px;
+      border-bottom: 1px solid #263626;
+      padding-bottom: 8px;
+    }
+
+    h3 {
+      color: #76B900;
+      margin-top: 22px;
+    }
+
+    .card {
+      border: 1px solid #263626;
+      background: #0B0F0B;
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 18px;
+    }
+
+    ul, ol {
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      color: #d0d0d0;
+    }
+
+    code, pre {
+      background: #050805;
+      color: #76B900;
+      border: 1px solid #263626;
+      border-radius: 10px;
+    }
+
+    code {
+      padding: 2px 6px;
+    }
+
+    pre {
+      padding: 14px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    .note {
+      background: #101810;
+      border-left: 4px solid #76B900;
+      padding: 14px 16px;
+      border-radius: 12px;
+      color: #d0d0d0;
+    }
+
+    .warning {
+      background: #1a1010;
+      border-left: 4px solid #ff8a8a;
+      padding: 14px 16px;
+      border-radius: 12px;
+      color: #ffd0d0;
     }
   </style>
 </head>
+
 <body>
   <main class="container">
     <section class="header">
       <div class="eyebrow">MV Guide</div>
       <h1>MV Operator Guide</h1>
       <p>
-        This guide explains the operator workflow for connecting to the Nova Orin,
-        launching the recorder, checking the device IP address, and opening the monitoring UI.
+        This guide covers MV operator responsibilities, recording flow, communication with the data collector,
+        and troubleshooting steps for Foxglove, Nova Orin, Docker, and camera issues.
       </p>
     </section>
 
     <section class="card">
-      <h2>SSH into Nova Orin</h2>
-      <p>
-        On your work computer connected to the required company network, open a terminal
-        and SSH into the Nova Orin.
-      </p>
-
-      <p class="warning">
-        Do not store plaintext passwords in this guide. Use the approved shared credential source
-        or ask the project lead for the current Nova Orin password.
-      </p>
-
-      <pre><code>ssh nvidia@nova-devkit-6.dyn.nvidia.com</code></pre>
-
-      <p>
-        If host verification appears, type:
-      </p>
-
-      <pre><code>yes</code></pre>
-
-      <p>
-        When prompted, enter the approved Nova Orin password.
-      </p>
-
-      <pre><code>Password: &lt;Nova Orin password&gt;</code></pre>
+      <h2>Operator Responsibilities</h2>
+      <ul>
+        <li>Complete required recording fields such as Author, Title, and Location.</li>
+        <li>Use the correct task title based on the dataset/task being collected.</li>
+        <li>Start the recording before the data collector begins moving.</li>
+        <li>Give a 3 second countdown before signaling the data collector to start.</li>
+        <li>Confirm the data collector stays inside the marked bounding area.</li>
+        <li>Confirm the target object is visible and not blocked from camera views.</li>
+        <li>End the recording when the data collector indicates the sequence is complete.</li>
+        <li>Communicate clearly when the session has ended.</li>
+      </ul>
     </section>
 
     <section class="card">
-      <h2>Start tmux and Enter Isaac ROS Dev Environment</h2>
-      <p>
-        Once inside the Nova devkit shell, start a tmux session and enter the Isaac workspace.
-      </p>
-
-      <pre><code>tmux
-cd /mnt/nova_ssd/workspaces/isaac
-./scripts/run_dev.py</code></pre>
-
-      <p>
-        After this, you should be inside the container shell. It may take a minute.
-        The prompt should look similar to:
-      </p>
-
-      <pre><code>admin@nova-devkit-6:/workspaces/isaac_ros-dev/ros_ws</code></pre>
-
-      <p>
-        Source the workspace:
-      </p>
-
-      <pre><code>source install/setup.bash</code></pre>
+      <h2>Before Recording</h2>
+      <ul>
+        <li>Verify the calibration video is good quality before starting data collection.</li>
+        <li>Confirm the correct pre-scanned object is being used.</li>
+        <li>Make sure only the required object is present.</li>
+        <li>Confirm the data collector is inside the marked bounding area.</li>
+        <li>Make sure the target object is not blocked from any camera view.</li>
+      </ul>
     </section>
 
     <section class="card">
-      <h2>Alternative: Install Pre-built Packages from APT</h2>
+      <h2>Foxglove Troubleshooting</h2>
+
+      <h3>Connection Issues</h3>
       <p>
-        Instead of building ROS packages from source, pre-built packages can be installed
-        from APT directly. However, this requires reinstalling each time the container is launched.
+        If there is an issue when attempting to connect to Foxglove, try reconnecting first.
+        If the issue continues, clear the browser cache and reconnect using:
       </p>
 
-      <pre><code>tmux
-cd /mnt/nova_ssd/workspaces/isaac
+      <pre>&lt;IP Address&gt;:8080</pre>
+
+      <p>
+        Use the IP address with port <code>8080</code> instead of the full URL.
+      </p>
+
+      <h3>Foxglove Delay</h3>
+      <p>
+        If Foxglove appears delayed, refresh the Foxglove session first.
+        If refreshing does not solve the issue, reboot the Nova Orin.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Rebooting Nova Orin</h2>
+
+      <p>
+        In the terminal where the process is running, press:
+      </p>
+
+      <pre>Ctrl + C</pre>
+
+      <p>Then run:</p>
+
+      <pre>sudo reboot</pre>
+
+      <p>
+        After rebooting, SSH back into the Nova Orin, enter the tmux session, and run:
+      </p>
+
+      <pre>tmux
+argus_syncstereo
+nova_preflight_checker</pre>
+
+      <p>
+        Then proceed to activate the Isaac ROS development environment again.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Python Package Fixes</h2>
+
+      <p>If issues arise related to YAML, PyYAML, or packaging, run:</p>
+
+      <pre>python3 -m pip uninstall -y yaml pyyaml
+python3 -m pip install pyyaml
+python3 -m pip install packaging</pre>
+    </section>
+
+    <section class="card">
+      <h2>Docker / Isaac ROS Recorder Troubleshooting</h2>
+
+      <p>
+        If the issue appears related to Docker or the Isaac ROS recorder setup, run:
+      </p>
+
+      <pre>docker system prune -a</pre>
+
+      <p>
+        After this, exit Docker and continue with:
+      </p>
+
+      <pre>cd /mnt/nova_ssd/workspaces/isaac
 ./scripts/run_dev.py
 sudo apt-get update
-sudo apt-get install -y ros-humble-isaac-ros-nova-recorder</code></pre>
+sudo apt-get install -y ros-humble-isaac-ros-nova-recorder</pre>
 
       <p class="warning">
-        If using the APT package flow, do not run <code>source install/setup.bash</code>.
+        Do not source <code>install/setup.bash</code>.
       </p>
     </section>
 
     <section class="card">
-      <h2>Launch Nova Recorder</h2>
+      <h2>argus_syncstereo Troubleshooting</h2>
+
       <p>
-        All necessary Isaac ROS packages should already be built, so launch the recorder command below.
-        You may need to try this multiple times because the current build can run into a buffer
-        out-of-memory error. Once it successfully launches, it should continue without issues.
+        If the following command is not working:
       </p>
 
-      <pre><code>ros2 launch isaac_ros_nova_recorder nova_recorder.launch.py config:=hawk-4</code></pre>
+      <pre>argus_syncstereo</pre>
+
+      <p>Check the status of the service:</p>
+
+      <pre>sudo systemctl status nvargus-daemon</pre>
+
+      <p>If the system is inactive, restart it:</p>
+
+      <pre>sudo systemctl restart nvargus-daemon</pre>
+
+      <p>
+        After restarting, proceed with the normal commands again.
+      </p>
     </section>
 
     <section class="card">
-      <h2>Get the Orin Local IP Address</h2>
-      <p>
-        Open a separate terminal inside the Nova Orin by using:
-      </p>
-
-      <pre><code>Ctrl + b, then c</code></pre>
-
-      <p>
-        Run:
-      </p>
-
-      <pre><code>ifconfig</code></pre>
-
-      <p>
-        Look for the local IP address under the network interface, for example:
-      </p>
-
-      <pre><code>eno1: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
-        inet 10.xxx.xx.xxx  netmask 255.255.254.0  broadcast 10.xxx.xx.xxx</code></pre>
-    </section>
-
-    <section class="card">
-      <h2>Open the Monitoring UI</h2>
-      <p>
-        Once the IP address has been obtained, open Chrome and visit the URL below.
-        Replace <code>&lt;local_ip&gt;</code> with the Orin IP address from <code>ifconfig</code>.
-      </p>
-
-      <pre><code>https://&lt;local_ip&gt;:8080/?ds=foxglove-websocket&amp;ds.url=ws%3A%2F%2F&lt;local_ip&gt;%3A8765</code></pre>
-
-      <p>
-        To move back and forth between tmux terminals, use:
-      </p>
-
-      <pre><code>Ctrl + b, then p</code></pre>
-
-      <h3>Successful UI Connection</h3>
-      <p>
-        A successful connection should bring you to the monitoring UI.
-      </p>
-
-      <img
-        src="/images/mv/operator-guide/nova-ui.png"
-        alt="Nova Orin monitoring UI"
-        class="guide-image"
-      />
+      <h2>Quick Troubleshooting Checklist</h2>
+      <ul>
+        <li>Refresh Foxglove if it appears delayed.</li>
+        <li>Clear browser cache and reconnect using <code>&lt;IP Address&gt;:8080</code>.</li>
+        <li>Reboot Nova Orin if refresh does not resolve the issue.</li>
+        <li>Restart tmux workflow after SSH reconnect.</li>
+        <li>Run <code>argus_syncstereo</code> and <code>nova_preflight_checker</code>.</li>
+        <li>Fix YAML/PyYAML package issues if needed.</li>
+        <li>Use Docker prune and reinstall recorder package if Docker/recorder issues occur.</li>
+        <li>Check and restart <code>nvargus-daemon</code> if <code>argus_syncstereo</code> fails.</li>
+      </ul>
     </section>
   </main>
 </body>

@@ -1,48 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EGO Operator Guide</title>
   <style>
     body { margin: 0; font-family: Arial, sans-serif; background: #050805; color: #f5f5f5; line-height: 1.6; }
-    .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+    .container { max-width: 950px; margin: 0 auto; padding: 40px 24px; }
     .header { border: 1px solid #263626; background: linear-gradient(135deg, #132013, #0B0F0B, #050805); border-radius: 24px; padding: 32px; margin-bottom: 24px; }
     .eyebrow { color: #76B900; font-weight: 700; margin-bottom: 8px; }
     h1 { margin: 0; font-size: 36px; }
-    h2 { border-bottom: 1px solid #263626; padding-bottom: 8px; margin-top: 28px; }
+    h2 { color: #ffffff; margin-top: 28px; border-bottom: 1px solid #263626; padding-bottom: 8px; }
+    h3 { color: #76B900; margin-top: 22px; }
     .card { border: 1px solid #263626; background: #0B0F0B; border-radius: 18px; padding: 24px; margin-bottom: 18px; }
+    ul, ol { padding-left: 22px; }
     li { margin-bottom: 8px; color: #d0d0d0; }
+    code, pre { background: #050805; color: #76B900; border: 1px solid #263626; border-radius: 10px; }
+    code { padding: 2px 6px; }
+    pre { padding: 14px; overflow-x: auto; white-space: pre-wrap; }
+    .note { background: #101810; border-left: 4px solid #76B900; padding: 14px 16px; border-radius: 12px; color: #d0d0d0; }
     .warning { background: #1a1010; border-left: 4px solid #ff8a8a; padding: 14px 16px; border-radius: 12px; color: #ffd0d0; }
-  
-    .guide-image {
-      display: block;
-      width: 100%;
-      max-width: 520px;
-      max-height: 240px;
-      object-fit: contain;
-      background: #000;
-      border-radius: 12px;
-      border: 1px solid #263626;
-      margin: 12px 0 8px;
-    }
-
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin: 12px 0 8px;
-    }
-
-    .image-grid img {
-      width: 100%;
-      max-height: 220px;
-      object-fit: contain;
-      background: #000;
-      border-radius: 12px;
-      border: 1px solid #263626;
-    }
-
   </style>
 </head>
 <body>
@@ -51,7 +27,8 @@
       <div class="eyebrow">EGO Guide</div>
       <h1>EGO Operator Guide</h1>
       <p>
-        This guide explains what the operator should check during EGO recording.
+        This guide explains what the operator should check during EGO recording and includes
+        the commands used to start camera recording with the pre-built bundle.
       </p>
     </section>
 
@@ -67,6 +44,47 @@
     </section>
 
     <section class="card">
+      <h2>Starting the Camera Recording</h2>
+
+      <h3>Activate Environment</h3>
+      <p>At the root directory of <code>egocam_collection_bundle/</code>, run:</p>
+
+      <pre>uv venv --python 3.11 venv_isaacteleop
+source venv_isaacteleop/bin/activate</pre>
+
+      <h3>Install Dependencies</h3>
+      <pre>uv pip install -r requirements.txt</pre>
+
+      <h3>Run with Preview and Upload</h3>
+      <pre>uv run egocam_collection.py --bucket-path s3://recordings/v2d/ego/ --endpoint-url https://pdx.s8k.io --access-user '' --secret-key '' --region us-east-1 --preview</pre>
+
+      <h3>Run with Preview and No Upload</h3>
+      <pre>uv run egocam_collection.py --no-upload --preview</pre>
+
+      <div class="note">
+        The script prompts for a session ID. Leaving it empty uses the timestamp as the ID.
+        It also prompts for stream selection. Leaving stream selection empty selects Color.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Stopping Recording</h2>
+      <p>Press:</p>
+
+      <pre>Ctrl + C</pre>
+
+      <p>
+        A raw H264 frame file and MP4 mux for each stream will be saved under:
+      </p>
+
+      <pre>ego-reconstruction/collection/recordings/</pre>
+
+      <p>Naming convention:</p>
+
+      <pre>SessionID_{color|monoleft|monoright}.{h264|mp4}</pre>
+    </section>
+
+    <section class="card">
       <h2>During Recording</h2>
       <ul>
         <li>Watch that the task interaction stays in frame.</li>
@@ -74,6 +92,7 @@
         <li>Check that the data collector moves slowly and naturally.</li>
         <li>Check that the video remains stable.</li>
         <li>Watch for fast, jerky, or unrelated movements.</li>
+        <li>Confirm the data collector returns to the start pose at the end.</li>
       </ul>
     </section>
 
@@ -86,28 +105,17 @@
         <li>If another person or extra hand appears in frame, delete the sequence and redo it.</li>
       </ul>
 
-      <h3>Good and Bad EGO Examples</h3>
-      <div class="image-grid">
-        <img
-          src="/images/ego/good-example-ego.png"
-          alt="Good EGO example"
-        />
-        <img
-          src="/images/ego/bad-example-ego-2.jpeg"
-          alt="Bad EGO redo example"
-        />
-      </div>
-
-      <p class="warning">
+      <div class="warning">
         Do not keep a sequence if important task interaction is missing from the head-mounted camera view.
-      </p>
+      </div>
     </section>
 
     <section class="card">
       <h2>After Recording</h2>
       <ul>
+        <li>Confirm the task is complete.</li>
         <li>Confirm the data collector returned to the start pose at the end.</li>
-        <li>End the recording once the task is complete and the data collector returns to the start pose.</li>
+        <li>End the recording.</li>
         <li>Confirm whether the sequence is usable.</li>
       </ul>
     </section>
